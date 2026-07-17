@@ -12,7 +12,8 @@ All notable changes to this project are documented here. The format follows Keep
 - Paper-style risk-aversion experiment runner.
 - CSV summaries, run metadata, SHA-256 input fingerprints and risk-return figures.
 - Automated tests for constraints, validation, exclusions and reproducibility outputs.
-- GitHub Actions verification across supported Python versions.
+- GitHub Actions verification on Python 3.9, 3.11 and 3.12.
+- Automated source-distribution and wheel build validation with `build` and `twine`.
 - Data-provenance guidance, Zenodo metadata and a release checklist.
 - Installable project metadata and the `dream11-reproduce` command-line entry point.
 
@@ -21,6 +22,7 @@ All notable changes to this project are documented here. The format follows Keep
 - Removed Gurobi from mandatory dependencies.
 - Added bounded dependency ranges for more stable CI.
 - Relaxed numerical comparison tolerance to avoid false failures from harmless solver-level floating-point differences.
+- Aligned the planned first GitHub release tag with package version `0.1.0`.
 
 ### Known limitation
 
