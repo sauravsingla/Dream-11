@@ -32,10 +32,14 @@ The optimisation enforces the principal constraints described in the paper:
 - `Dream_11.ipynb` — original research notebook and scenario analysis.
 - `src/dream11_optimizer.py` — reusable implementation of the paper's optimisation model.
 - `examples/run_optimisation.py` — command-line example for running the model on a CSV.
+- `experiments/reproduce_paper_results.py` — repeatable risk-aversion experiment workflow.
 - `data/example_players.csv` — clearly labelled synthetic data for trying the code.
-- `data/README.md` — expected data schema and provenance guidance.
+- `data/README.md` — expected input schema.
+- `docs/data_provenance.md` — rules for recovering or reconstructing the research data.
 - `tests/` — synthetic tests for the main team-selection constraints.
-- `.github/workflows/tests.yml` — automated tests for supported Python versions.
+- `.github/workflows/tests.yml` — automated tests and experiment smoke test.
+- `.zenodo.json` — metadata prepared for a future archived software release.
+- `RELEASE_CHECKLIST.md` — checks required before publishing `v1.0.0`.
 
 The original notebook is retained as the historical research artefact. The reusable module removes the notebook's machine-specific file path and makes the model easier to run with another dataset.
 
@@ -82,6 +86,25 @@ python examples/run_optimisation.py data/example_players.csv \
 
 The example dataset is synthetic and is provided only to demonstrate the workflow. It is not the dataset used to generate the paper's reported results.
 
+## Run the paper-style experiments
+
+The experiment runner evaluates several risk-aversion values, writes each selected team, and creates a summary and machine-readable run metadata:
+
+```bash
+python experiments/reproduce_paper_results.py \
+  --input data/example_players.csv \
+  --solver pulp \
+  --risk-values 0 0.5 1 2 5 10
+```
+
+To repeat the paper's player-unavailability scenario on a compatible dataset, add:
+
+```bash
+--exclude-player "V Kohli"
+```
+
+By default, outputs are written under `outputs/paper_experiments/`. Exact numerical reproduction requires the verified original research dataset.
+
 ## Run with another CSV
 
 ```bash
@@ -109,7 +132,11 @@ print(team[["Player Name", "Player Type", "Fantasy Role", "Expected Score"]])
 
 ## Reproducing the paper
 
-To reproduce the exact numerical tables and selected teams from the article, use the same player scores and prices used in the original experiment. Those values are visible in the executed notebook output, but the original local source file was not committed. No replacement dataset is presented here as the original data unless its provenance can be verified.
+To reproduce the exact numerical tables and selected teams from the article, use the same player scores and prices used in the original experiment. The original local source file was not committed and no verified public copy has been identified. See `docs/data_provenance.md` before adding recovered or reconstructed data.
+
+## Archival release
+
+The repository contains Zenodo metadata and a release checklist, but a software DOI has not yet been issued. A DOI should be added only after a reviewed GitHub release is published and successfully archived by Zenodo.
 
 ## Citation
 
