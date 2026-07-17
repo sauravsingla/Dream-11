@@ -30,10 +30,12 @@ The optimisation enforces the principal constraints described in the paper:
 ## Repository contents
 
 - `Dream_11.ipynb` — original research notebook and scenario analysis.
-- `src/dream11_optimizer.py` — reusable, validated implementation of the paper's optimisation model.
+- `src/dream11_optimizer.py` — reusable implementation of the paper's optimisation model.
 - `examples/run_optimisation.py` — command-line example for running the model on a CSV.
+- `data/example_players.csv` — clearly labelled synthetic data for trying the code.
 - `data/README.md` — expected data schema and provenance guidance.
 - `tests/` — synthetic tests for the main team-selection constraints.
+- `.github/workflows/tests.yml` — automated tests for supported Python versions.
 
 The original notebook is retained as the historical research artefact. The reusable module removes the notebook's machine-specific file path and makes the model easier to run with another dataset.
 
@@ -63,14 +65,28 @@ source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Gurobi requires a valid licence. Academic users can obtain an academic licence directly from Gurobi. The optimisation code reports a clear error when Gurobi is unavailable.
+The implementation supports two solver backends:
 
-## Run from the command line
+- **Gurobi**, matching the solver used by the original research notebook. It requires a valid licence.
+- **PuLP with CBC**, an open-source option that works without a commercial solver licence.
 
-Place a compatible CSV under `data/` and run:
+With `solver="auto"`, the code tries Gurobi first and falls back to PuLP when Gurobi is unavailable.
+
+## Try the included example
+
+```bash
+python examples/run_optimisation.py data/example_players.csv \
+  --solver pulp \
+  --risk-aversion 2
+```
+
+The example dataset is synthetic and is provided only to demonstrate the workflow. It is not the dataset used to generate the paper's reported results.
+
+## Run with another CSV
 
 ```bash
 python examples/run_optimisation.py data/players.csv \
+  --solver auto \
   --risk-aversion 2 \
   --output outputs/selected_team.csv
 ```
@@ -84,8 +100,8 @@ import pandas as pd
 
 from src.dream11_optimizer import OptimisationConfig, optimise_team
 
-players = pd.read_csv("data/players.csv")
-config = OptimisationConfig(risk_aversion=2.0)
+players = pd.read_csv("data/example_players.csv")
+config = OptimisationConfig(risk_aversion=2.0, solver="pulp")
 team = optimise_team(players, config)
 
 print(team[["Player Name", "Player Type", "Fantasy Role", "Expected Score"]])
