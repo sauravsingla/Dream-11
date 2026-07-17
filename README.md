@@ -36,8 +36,8 @@ The optimisation enforces the principal constraints described in the paper:
 - `data/example_players.csv` — clearly labelled synthetic data for trying the code.
 - `data/README.md` — expected input schema.
 - `docs/data_provenance.md` — rules for recovering or reconstructing the research data.
-- `tests/` — synthetic tests for the main team-selection constraints.
-- `.github/workflows/tests.yml` — automated tests and experiment smoke test.
+- `tests/` — PuLP-first tests for the optimisation and experiment workflows, with optional Gurobi coverage.
+- `.github/workflows/tests.yml` — automated tests and reference-experiment verification.
 - `.zenodo.json` — metadata prepared for a future archived software release.
 - `RELEASE_CHECKLIST.md` — checks required before publishing `v1.0.0`.
 
@@ -63,16 +63,26 @@ Supported player-type values are `BAT`, `BOWL`, `AR` and `WK`. The reusable impl
 
 Python 3.9 or later is recommended.
 
+For the open-source PuLP/CBC workflow:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+To install the optional Gurobi backend as well:
+
+```bash
+pip install -r requirements-gurobi.txt
+```
+
+Gurobi requires an appropriate licence. It is not required to run the examples, tests or reproduction workflow with PuLP.
+
 The implementation supports two solver backends:
 
 - **Gurobi**, matching the solver used by the original research notebook. It requires a valid licence.
-- **PuLP with CBC**, an open-source option that works without a commercial solver licence.
+- **PuLP with CBC**, the default open-source option that works without a commercial solver licence.
 
 With `solver="auto"`, the code tries Gurobi first and falls back to PuLP when Gurobi is unavailable.
 
@@ -88,7 +98,7 @@ The example dataset is synthetic and is provided only to demonstrate the workflo
 
 ## Run the paper-style experiments
 
-The experiment runner evaluates several risk-aversion values, writes each selected team, and creates a summary and machine-readable run metadata:
+The experiment runner evaluates several risk-aversion values, writes each selected team, creates a summary and machine-readable metadata, and generates two figures showing the score-risk trade-off:
 
 ```bash
 python experiments/reproduce_paper_results.py \
@@ -96,6 +106,14 @@ python experiments/reproduce_paper_results.py \
   --solver pulp \
   --risk-values 0 0.5 1 2 5 10
 ```
+
+Generated outputs include:
+
+- `experiment_summary.csv`;
+- `run_metadata.json` with an input-file SHA-256 fingerprint and package versions;
+- one selected-team CSV per risk-aversion value;
+- `expected_score_vs_risk_aversion.png`;
+- `team_risk_vs_risk_aversion.png`.
 
 To repeat the paper's player-unavailability scenario on a compatible dataset, add:
 
