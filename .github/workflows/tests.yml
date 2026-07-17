@@ -22,17 +22,17 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
 
-      - name: Install test dependencies
+      - name: Install project and test dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -e ".[test]"
 
       - name: Run tests
         run: pytest -q
 
       - name: Reproduce the synthetic reference experiment
         run: |
-          python experiments/reproduce_paper_results.py \
+          dream11-reproduce \
             --input data/example_players.csv \
             --risk-values 0 0.5 1 2 5 10 \
             --solver pulp \
