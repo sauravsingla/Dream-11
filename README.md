@@ -1,5 +1,10 @@
 # Integer Optimisation for Dream 11 Cricket Team Selection
 
+[![Tests](https://github.com/sauravsingla/Dream-11/actions/workflows/tests.yml/badge.svg)](https://github.com/sauravsingla/Dream-11/actions/workflows/tests.yml)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![DOI](https://img.shields.io/badge/paper-10.26438%2Fijcse%2Fv8i11.16-blue.svg)](https://doi.org/10.26438/ijcse/v8i11.16)
+
 This repository contains the code accompanying the research article:
 
 > Saurav Singla and Swapna Samir Shukla, **“Integer Optimisation for Dream 11 Cricket Team Selection,”** *International Journal of Computer Sciences and Engineering*, vol. 8, no. 11, pp. 1–6, November 2020. DOI: [10.26438/ijcse/v8i11.16](https://doi.org/10.26438/ijcse/v8i11.16).
@@ -38,6 +43,8 @@ The optimisation enforces the principal constraints described in the paper:
 - `docs/data_provenance.md` — rules for recovering or reconstructing the research data.
 - `tests/` — PuLP-first tests for the optimisation and experiment workflows, with optional Gurobi coverage.
 - `.github/workflows/tests.yml` — automated tests and reference-experiment verification.
+- `pyproject.toml` — installable package and CLI configuration.
+- `CHANGELOG.md` — project change history.
 - `.zenodo.json` — metadata prepared for a future archived software release.
 - `RELEASE_CHECKLIST.md` — checks required before publishing `v1.0.0`.
 
@@ -61,20 +68,32 @@ Supported player-type values are `BAT`, `BOWL`, `AR` and `WK`. The reusable impl
 
 ## Installation
 
-Python 3.9 or later is recommended.
+Python 3.9 or later is supported.
 
-For the open-source PuLP/CBC workflow:
+For an editable development installation with test dependencies:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\activate
+pip install -e ".[test]"
+```
+
+For a regular open-source PuLP/CBC installation:
+
+```bash
+pip install .
+```
+
+The legacy requirements-file workflow remains available:
+
+```bash
 pip install -r requirements.txt
 ```
 
-To install the optional Gurobi backend as well:
+To install the optional Gurobi backend:
 
 ```bash
-pip install -r requirements-gurobi.txt
+pip install -e ".[gurobi]"
 ```
 
 Gurobi requires an appropriate licence. It is not required to run the examples, tests or reproduction workflow with PuLP.
@@ -98,7 +117,16 @@ The example dataset is synthetic and is provided only to demonstrate the workflo
 
 ## Run the paper-style experiments
 
-The experiment runner evaluates several risk-aversion values, writes each selected team, creates a summary and machine-readable metadata, and generates two figures showing the score-risk trade-off:
+After installation, use the packaged CLI:
+
+```bash
+dream11-reproduce \
+  --input data/example_players.csv \
+  --solver pulp \
+  --risk-values 0 0.5 1 2 5 10
+```
+
+The Python script remains available directly:
 
 ```bash
 python experiments/reproduce_paper_results.py \
@@ -139,7 +167,7 @@ The command prints the selected eleven with captain and vice-captain assignments
 ```python
 import pandas as pd
 
-from src.dream11_optimizer import OptimisationConfig, optimise_team
+from src import OptimisationConfig, optimise_team
 
 players = pd.read_csv("data/example_players.csv")
 config = OptimisationConfig(risk_aversion=2.0, solver="pulp")
