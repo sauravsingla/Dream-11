@@ -35,14 +35,31 @@ def test_run_experiments_generates_reproducibility_outputs(tmp_path: Path) -> No
     assert (output_dir / "run_metadata.json").exists()
     assert (output_dir / "selected_team_risk_0.csv").exists()
     assert (output_dir / "selected_team_risk_2.csv").exists()
-    assert (output_dir / "expected_score_vs_risk_aversion.png").exists()
-    assert (output_dir / "team_risk_vs_risk_aversion.png").exists()
+
+    score_figure = output_dir / "expected_score_vs_risk_aversion.png"
+    risk_figure = output_dir / "team_risk_vs_risk_aversion.png"
+    assert score_figure.exists()
+    assert risk_figure.exists()
+    assert score_figure.stat().st_size > 0
+    assert risk_figure.stat().st_size > 0
 
     metadata = json.loads((output_dir / "run_metadata.json").read_text())
     assert metadata["input_sha256"] == file_sha256(EXAMPLE_DATA)
     assert metadata["solver"] == "pulp"
     assert metadata["risk_values"] == [0.0, 2.0]
     assert "matplotlib_version" in metadata
+
+
+def test_run_experiments_rejects_empty_risk_values(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="At least one"):
+        run_experiments(
+            input_path=EXAMPLE_DATA,
+            risk_values=[],
+            budget=100.0,
+            solver="pulp",
+            excluded_players=[],
+            output_dir=tmp_path,
+        )
 
 
 def test_run_experiments_rejects_duplicate_risk_values(tmp_path: Path) -> None:
@@ -63,6 +80,18 @@ def test_run_experiments_rejects_negative_risk_values(tmp_path: Path) -> None:
             input_path=EXAMPLE_DATA,
             risk_values=[-1.0],
             budget=100.0,
+            solver="pulp",
+            excluded_players=[],
+            output_dir=tmp_path,
+        )
+
+
+def test_run_experiments_rejects_non_positive_budget(tmp_path: Path) -> None:
+    with pytest.raises(ValueError, match="Budget must be positive"):
+        run_experiments(
+            input_path=EXAMPLE_DATA,
+            risk_values=[0.0],
+            budget=0.0,
             solver="pulp",
             excluded_players=[],
             output_dir=tmp_path,
