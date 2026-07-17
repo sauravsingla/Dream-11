@@ -1,0 +1,29 @@
+# Python cache and build artefacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Local environments
+.venv/
+venv/
+env/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local datasets and generated results
+# Keep documentation files in data/ under version control.
+data/*.csv
+!data/README.md
+outputs/
