@@ -30,12 +30,42 @@ jobs:
       - name: Run tests
         run: pytest -q
 
-      - name: Run the paper-style experiment smoke test
+      - name: Reproduce the synthetic reference experiment
         run: |
           python experiments/reproduce_paper_results.py \
             --input data/example_players.csv \
-            --risk-values 0 2 \
+            --risk-values 0 0.5 1 2 5 10 \
             --solver pulp \
             --output-dir /tmp/dream11-paper-experiments
-          test -f /tmp/dream11-paper-experiments/experiment_summary.csv
-          test -f /tmp/dream11-paper-experiments/run_metadata.json
+
+      - name: Compare results with the committed reference
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import numpy as np
+          import pandas as pd
+
+          expected = pd.read_csv("results/synthetic_reference/experiment_summary.csv")
+          actual = pd.read_csv("/tmp/dream11-paper-experiments/experiment_summary.csv")
+
+          assert actual["risk_aversion"].tolist() == expected["risk_aversion"].tolist()
+          for column in ["captain", "vice_captain", "player_type_counts", "real_team_counts"]:
+              assert actual[column].tolist() == expected[column].tolist(), column
+
+          for column in [
+              "credits_used",
+              "expected_score_with_multipliers",
+              "total_score_risk",
+              "risk_adjusted_objective",
+          ]:
+              assert np.allclose(actual[column], expected[column], rtol=1e-9, atol=1e-9), column
+
+          for actual_players, expected_players in zip(
+              actual["selected_players"], expected["selected_players"]
+          ):
+              assert set(actual_players.split("; ")) == set(expected_players.split("; "))
+
+          output = Path("/tmp/dream11-paper-experiments")
+          assert (output / "run_metadata.json").is_file()
+          assert len(list(output.glob("selected_team_risk_*.csv"))) == 6
+          PY
