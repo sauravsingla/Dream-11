@@ -1,0 +1,31 @@
+{
+  "title": "Integer Optimisation for Dream 11 Cricket Team Selection",
+  "description": "A reproducible implementation of the binary integer-optimisation model accompanying the 2020 research article, with Gurobi and open-source PuLP solver support.",
+  "creators": [
+    {
+      "name": "Singla, Saurav"
+    },
+    {
+      "name": "Shukla, Swapna Samir"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "keywords": [
+    "integer optimisation",
+    "fantasy cricket",
+    "Dream11",
+    "sports analytics",
+    "risk aversion",
+    "Gurobi",
+    "PuLP"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.26438/ijcse/v8i11.16",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
+    }
+  ],
+  "notes": "The included example dataset is synthetic. Exact reproduction of the paper's numerical results requires the verified original research dataset."
+}
