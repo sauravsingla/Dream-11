@@ -1,0 +1,86 @@
+name: Research reproduction
+
+description: Report a reproduction attempt, dataset adaptation or comparison study
+
+title: "[Reproduction]: "
+
+labels:
+  - research
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for testing or extending the paper implementation. Please provide enough detail for another researcher to understand the setup.
+
+  - type: dropdown
+    id: work_type
+    attributes:
+      label: Type of work
+      options:
+        - Reproduction of the published method
+        - New dataset or season
+        - Comparison with another algorithm
+        - Proposed methodological extension
+        - Documentation or usability issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What are you trying to reproduce, compare or extend?
+    validations:
+      required: true
+
+  - type: textarea
+    id: data
+    attributes:
+      label: Data provenance
+      description: Describe the source, season, date range, licence and whether the data is original, reconstructed or synthetic.
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command or code used
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include operating system, Python version, package versions and solver.
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    id: result
+    attributes:
+      label: Observed result
+      description: Include output, metrics or error details. Remove private data and credentials.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: Explain the expected behaviour or comparison target.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Reproducibility checks
+      options:
+        - label: I have not used information from after the target match.
+        - label: I have documented whether the data is original, reconstructed or synthetic.
+        - label: I have recorded the repository commit or release used.
+        - label: I have removed private data, credentials and restricted files from this report.
