@@ -77,3 +77,5 @@ jobs:
         run: |
           python -m build
           python -m twine check dist/*
+          python -m pip install --force-reinstall --no-deps dist/*.whl
+          dream11-reproduce --help
