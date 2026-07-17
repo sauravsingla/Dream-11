@@ -24,6 +24,20 @@ def make_players() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def assert_paper_constraints(team: pd.DataFrame) -> None:
+    assert len(team) == 11
+    assert team["Price"].sum() <= 100
+    assert (team["Fantasy Role"] == "CAPTAIN").sum() == 1
+    assert (team["Fantasy Role"] == "VICE_CAPTAIN").sum() == 1
+    assert team.groupby("Team").size().max() <= 7
+
+    type_counts = team.groupby("Player Type").size().to_dict()
+    assert 3 <= type_counts["BAT"] <= 6
+    assert 3 <= type_counts["BOWL"] <= 6
+    assert 1 <= type_counts["AR"] <= 4
+    assert 1 <= type_counts["WK"] <= 4
+
+
 def test_prepare_player_data_calculates_mean_and_population_risk() -> None:
     prepared = prepare_player_data(make_players())
 
@@ -50,18 +64,19 @@ def test_prepare_player_data_rejects_missing_score_columns() -> None:
         prepare_player_data(players)
 
 
-def test_optimised_team_obeys_paper_constraints() -> None:
+def test_pulp_optimised_team_obeys_paper_constraints() -> None:
+    pytest.importorskip("pulp")
+    team = optimise_team(
+        make_players(),
+        OptimisationConfig(risk_aversion=1.0, solver="pulp"),
+    )
+    assert_paper_constraints(team)
+
+
+def test_gurobi_optimised_team_obeys_paper_constraints_when_available() -> None:
     pytest.importorskip("gurobipy")
-    team = optimise_team(make_players(), OptimisationConfig(risk_aversion=1.0))
-
-    assert len(team) == 11
-    assert team["Price"].sum() <= 100
-    assert (team["Fantasy Role"] == "CAPTAIN").sum() == 1
-    assert (team["Fantasy Role"] == "VICE_CAPTAIN").sum() == 1
-    assert team.groupby("Team").size().max() <= 7
-
-    type_counts = team.groupby("Player Type").size().to_dict()
-    assert 3 <= type_counts["BAT"] <= 6
-    assert 3 <= type_counts["BOWL"] <= 6
-    assert 1 <= type_counts["AR"] <= 4
-    assert 1 <= type_counts["WK"] <= 4
+    team = optimise_team(
+        make_players(),
+        OptimisationConfig(risk_aversion=1.0, solver="gurobi"),
+    )
+    assert_paper_constraints(team)
