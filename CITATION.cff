@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite the associated paper when using this software."
+message: "Please cite this software and the associated paper when using the implementation."
 title: "Integer Optimisation for Dream 11 Cricket Team Selection"
 type: software
 authors:
@@ -8,7 +8,7 @@ authors:
   - family-names: Shukla
     given-names: Swapna Samir
 repository-code: "https://github.com/sauravsingla/Dream-11"
-date-released: 2020-11-30
+license: MIT
 preferred-citation:
   type: article
   title: "Integer Optimisation for Dream 11 Cricket Team Selection"
