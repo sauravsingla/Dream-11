@@ -3,15 +3,14 @@
 [![Tests](https://github.com/sauravsingla/Dream-11/actions/workflows/tests.yml/badge.svg)](https://github.com/sauravsingla/Dream-11/actions/workflows/tests.yml)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![DOI](https://img.shields.io/badge/paper-10.26438%2Fijcse%2Fv8i11.16-blue.svg)](https://doi.org/10.26438/ijcse/v8i11.16)
 
 **Official research-code repository** for the article:
 
-> Saurav Singla and Swapna Samir Shukla, **“Integer Optimisation for Dream 11 Cricket Team Selection,”** *International Journal of Computer Sciences and Engineering*, vol. 8, no. 11, pp. 1–6, November 2020. DOI: [10.26438/ijcse/v8i11.16](https://doi.org/10.26438/ijcse/v8i11.16).
+> Saurav Singla and Swapna Samir Shukla, **“Integer Optimisation for Dream 11 Cricket Team Selection,”** *International Journal of Computer Sciences and Engineering*, vol. 8, no. 11, pp. 1–6, November 2020.
 
 **Research areas:** fantasy-sports analytics · cricket analytics · integer programming · portfolio optimisation · risk-aware optimisation · operations research · sports team selection · Python · Gurobi · PuLP
 
-[Read the full text on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection) · [Publisher DOI](https://doi.org/10.26438/ijcse/v8i11.16) · [Run the example](#try-the-included-example) · [Reproduce experiments](#run-the-paper-style-experiments) · [Cite this work](#citation)
+[Read the full text on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection) · [Run the example](#try-the-included-example) · [Reproduce experiments](#run-the-paper-style-experiments) · [Cite this work](#citation)
 
 The study formulates fantasy-cricket team selection as a binary integer optimisation problem. It uses each player's performance over the previous ten matches and applies a Markowitz-inspired risk penalty to distinguish between risk-taking and risk-averse team-selection strategies.
 
@@ -57,9 +56,11 @@ The optimisation enforces the principal constraints described in the paper:
 - `data/README.md` — expected input schema.
 - `docs/data_provenance.md` — rules for recovering or reconstructing the research data.
 - `docs/research_reuse.md` — suggested extension studies and a fair comparison protocol.
+- `docs/reproducibility_checklist.md` — environment, data, solver and reporting checks.
 - `tests/` — PuLP-first tests for the optimisation and experiment workflows, with optional Gurobi coverage.
 - `.github/workflows/tests.yml` — automated tests and reference-experiment verification.
 - `pyproject.toml` — installable package and CLI configuration.
+- `CITATION.bib` and `CITATION.cff` — copy-ready and machine-readable citation metadata.
 - `CHANGELOG.md` — project change history.
 - `.zenodo.json` — metadata prepared for a future archived software release.
 - `RELEASE_CHECKLIST.md` — checks required before publishing `v1.0.0`.
@@ -218,7 +219,7 @@ Please cite the article when using this implementation, model formulation, exper
 }
 ```
 
-Machine-readable citation metadata is provided in `CITATION.cff`. GitHub's **Cite this repository** control can generate additional citation formats from that file.
+A standalone BibTeX record is available in `CITATION.bib`. Machine-readable citation metadata is provided in `CITATION.cff`, and GitHub's **Cite this repository** control can generate additional citation formats.
 
 ## Contributing
 
