@@ -29,3 +29,13 @@ jobs:
 
       - name: Run tests
         run: pytest -q
+
+      - name: Run the paper-style experiment smoke test
+        run: |
+          python experiments/reproduce_paper_results.py \
+            --input data/example_players.csv \
+            --risk-values 0 2 \
+            --solver pulp \
+            --output-dir /tmp/dream11-paper-experiments
+          test -f /tmp/dream11-paper-experiments/experiment_summary.csv
+          test -f /tmp/dream11-paper-experiments/run_metadata.json
