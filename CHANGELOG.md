@@ -16,6 +16,9 @@ All notable changes to this project are documented here. The format follows Keep
 - Automated source-distribution and wheel build validation with `build` and `twine`.
 - Data-provenance guidance, Zenodo metadata and a release checklist.
 - Installable project metadata and the `dream11-reproduce` command-line entry point.
+- Research reuse guide covering extension studies, fair comparisons and data reporting.
+- Contributor guidance focused on reproducible research changes.
+- Structured issue template for reproduction attempts and comparison studies.
 
 ### Changed
 
@@ -23,6 +26,7 @@ All notable changes to this project are documented here. The format follows Keep
 - Added bounded dependency ranges for more stable CI.
 - Relaxed numerical comparison tolerance to avoid false failures from harmless solver-level floating-point differences.
 - Aligned the planned first GitHub release tag with package version `0.1.0`.
+- Improved README discovery keywords, research-use cases and copy-ready citation guidance.
 
 ### Known limitation
 
