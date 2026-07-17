@@ -28,6 +28,12 @@ def parse_args() -> argparse.Namespace:
         help="Maximum available fantasy credits (default: 100)",
     )
     parser.add_argument(
+        "--solver",
+        choices=("auto", "gurobi", "pulp"),
+        default="auto",
+        help="Optimisation backend to use (default: auto)",
+    )
+    parser.add_argument(
         "--output",
         type=Path,
         help="Optional path for saving the selected team as CSV",
@@ -44,6 +50,7 @@ def main() -> None:
     config = OptimisationConfig(
         risk_aversion=args.risk_aversion,
         budget=args.budget,
+        solver=args.solver,
     )
     selected = optimise_team(players, config)
 
