@@ -5,11 +5,26 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![DOI](https://img.shields.io/badge/paper-10.26438%2Fijcse%2Fv8i11.16-blue.svg)](https://doi.org/10.26438/ijcse/v8i11.16)
 
-This repository contains the code accompanying the research article:
+**Official research-code repository** for the article:
 
 > Saurav Singla and Swapna Samir Shukla, **“Integer Optimisation for Dream 11 Cricket Team Selection,”** *International Journal of Computer Sciences and Engineering*, vol. 8, no. 11, pp. 1–6, November 2020. DOI: [10.26438/ijcse/v8i11.16](https://doi.org/10.26438/ijcse/v8i11.16).
 
+**Research areas:** fantasy-sports analytics · cricket analytics · integer programming · portfolio optimisation · risk-aware optimisation · operations research · sports team selection · Python · Gurobi · PuLP
+
+[Read the paper](https://doi.org/10.26438/ijcse/v8i11.16) · [Run the example](#try-the-included-example) · [Reproduce experiments](#run-the-paper-style-experiments) · [Cite this work](#citation)
+
 The study formulates fantasy-cricket team selection as a binary integer optimisation problem. It uses each player's performance over the previous ten matches and applies a Markowitz-inspired risk penalty to distinguish between risk-taking and risk-averse team-selection strategies.
+
+## Why this repository may be useful
+
+Researchers and practitioners can use this implementation as:
+
+- a reproducible baseline for constrained fantasy-team selection;
+- an example of transferring Markowitz-style risk modelling from finance to sports analytics;
+- a starting point for comparisons with heuristics, evolutionary algorithms, machine learning or reinforcement learning;
+- a teaching example for binary integer programming with real-world roster constraints.
+
+When publishing results derived from this implementation, please cite the paper using the BibTeX entry below.
 
 ## Method implemented in the paper
 
@@ -41,6 +56,7 @@ The optimisation enforces the principal constraints described in the paper:
 - `data/example_players.csv` — clearly labelled synthetic data for trying the code.
 - `data/README.md` — expected input schema.
 - `docs/data_provenance.md` — rules for recovering or reconstructing the research data.
+- `docs/research_reuse.md` — suggested extension studies and a fair comparison protocol.
 - `tests/` — PuLP-first tests for the optimisation and experiment workflows, with optional Gurobi coverage.
 - `.github/workflows/tests.yml` — automated tests and reference-experiment verification.
 - `pyproject.toml` — installable package and CLI configuration.
@@ -186,7 +202,27 @@ The repository contains Zenodo metadata and a release checklist, but a software 
 
 ## Citation
 
-Please cite the article when using this implementation in academic work. Machine-readable citation metadata is provided in `CITATION.cff`.
+Please cite the article when using this implementation, model formulation, experiment design or derivative datasets in academic work:
+
+```bibtex
+@article{singla2020integer,
+  title   = {Integer Optimisation for Dream 11 Cricket Team Selection},
+  author  = {Singla, Saurav and Shukla, Swapna Samir},
+  journal = {International Journal of Computer Sciences and Engineering},
+  volume  = {8},
+  number  = {11},
+  pages   = {1--6},
+  year    = {2020},
+  month   = {November},
+  doi     = {10.26438/ijcse/v8i11.16}
+}
+```
+
+Machine-readable citation metadata is provided in `CITATION.cff`. GitHub's **Cite this repository** control can generate additional citation formats from that file.
+
+## Contributing
+
+Research reproductions, alternative optimisation methods, dataset adapters and documentation improvements are welcome. Please read `CONTRIBUTING.md` before opening a pull request.
 
 ## Disclaimer
 
