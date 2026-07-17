@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.9", "3.11"]
+        python-version: ["3.9", "3.11", "3.12"]
 
     steps:
       - name: Check out repository
@@ -71,3 +71,9 @@ jobs:
           assert (output / "team_risk_vs_risk_aversion.png").is_file()
           assert len(list(output.glob("selected_team_risk_*.csv"))) == 6
           PY
+
+      - name: Build and validate distributions
+        if: matrix.python-version == '3.12'
+        run: |
+          python -m build
+          python -m twine check dist/*
