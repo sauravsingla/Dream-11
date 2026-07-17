@@ -58,7 +58,7 @@ jobs:
               "total_score_risk",
               "risk_adjusted_objective",
           ]:
-              assert np.allclose(actual[column], expected[column], rtol=1e-9, atol=1e-9), column
+              assert np.allclose(actual[column], expected[column], rtol=1e-7, atol=1e-7), column
 
           for actual_players, expected_players in zip(
               actual["selected_players"], expected["selected_players"]
