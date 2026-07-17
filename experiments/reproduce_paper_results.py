@@ -146,10 +146,14 @@ def run_experiments(
 
     if not input_path.exists():
         raise ValueError(f"Input file not found: {input_path}")
+    if not risk_values:
+        raise ValueError("At least one risk-aversion value is required")
     if len(set(risk_values)) != len(risk_values):
         raise ValueError("Risk-aversion values must be unique")
     if any(value < 0 for value in risk_values):
         raise ValueError("Risk-aversion values must be non-negative")
+    if budget <= 0:
+        raise ValueError("Budget must be positive")
 
     players = pd.read_csv(input_path)
     original_player_count = len(players)
