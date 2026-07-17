@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Please cite the associated paper when using this software."
+title: "Integer Optimisation for Dream 11 Cricket Team Selection"
+type: software
+authors:
+  - family-names: Singla
+    given-names: Saurav
+  - family-names: Shukla
+    given-names: Swapna Samir
+repository-code: "https://github.com/sauravsingla/Dream-11"
+date-released: 2020-11-30
+preferred-citation:
+  type: article
+  title: "Integer Optimisation for Dream 11 Cricket Team Selection"
+  authors:
+    - family-names: Singla
+      given-names: Saurav
+    - family-names: Shukla
+      given-names: Swapna Samir
+  journal: "International Journal of Computer Sciences and Engineering"
+  volume: 8
+  issue: 11
+  start: 1
+  end: 6
+  year: 2020
+  month: 11
+  doi: "10.26438/ijcse/v8i11.16"
