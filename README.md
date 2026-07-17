@@ -31,7 +31,9 @@ The optimisation enforces the principal constraints described in the paper:
 
 - `Dream_11.ipynb` — original research notebook and scenario analysis.
 - `src/dream11_optimizer.py` — reusable, validated implementation of the paper's optimisation model.
-- `tests/` — small synthetic tests for the key team-selection constraints.
+- `examples/run_optimisation.py` — command-line example for running the model on a CSV.
+- `data/README.md` — expected data schema and provenance guidance.
+- `tests/` — synthetic tests for the main team-selection constraints.
 
 The original notebook is retained as the historical research artefact. The reusable module removes the notebook's machine-specific file path and makes the model easier to run with another dataset.
 
@@ -63,7 +65,19 @@ pip install -r requirements.txt
 
 Gurobi requires a valid licence. Academic users can obtain an academic licence directly from Gurobi. The optimisation code reports a clear error when Gurobi is unavailable.
 
-## Example
+## Run from the command line
+
+Place a compatible CSV under `data/` and run:
+
+```bash
+python examples/run_optimisation.py data/players.csv \
+  --risk-aversion 2 \
+  --output outputs/selected_team.csv
+```
+
+The command prints the selected eleven with captain and vice-captain assignments. When `--output` is supplied, it also writes the complete result to a CSV file.
+
+## Use from Python
 
 ```python
 import pandas as pd
