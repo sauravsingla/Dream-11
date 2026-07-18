@@ -10,7 +10,7 @@
 
 **Research areas:** fantasy-sports analytics · cricket analytics · integer programming · portfolio optimisation · risk-aware optimisation · operations research · sports team selection · Python · Gurobi · PuLP
 
-[Read the full text on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection) · [Run the example](#try-the-included-example) · [Reproduce experiments](#run-the-paper-style-experiments) · [Cite this work](#citation)
+[Read the full text on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection) · [View the presentation on SlideShare](https://www.slideshare.net/slideshow/integer-optimisation-for-dream-11-cricket-team-selection/239396861) · [Run the example](#try-the-included-example) · [Reproduce experiments](#run-the-paper-style-experiments) · [Cite this work](#citation)
 
 The study formulates fantasy-cricket team selection as a binary integer optimisation problem. It uses each player's performance over the previous ten matches and applies a Markowitz-inspired risk penalty to distinguish between risk-taking and risk-averse team-selection strategies.
 
@@ -203,7 +203,7 @@ The repository contains Zenodo metadata and a release checklist, but a software 
 
 ## Citation
 
-Please cite the article when using this implementation, model formulation, experiment design or derivative datasets in academic work. The [full text is available on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection).
+Please cite the article when using this implementation, model formulation, experiment design or derivative datasets in academic work. The [full text is available on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection), and the [presentation is available on SlideShare](https://www.slideshare.net/slideshow/integer-optimisation-for-dream-11-cricket-team-selection/239396861).
 
 ```bibtex
 @article{singla2020integer,
