@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dream11-integer-optimisation"
 version = "0.1.0"
-description = "Dream11 fantasy cricket lineup optimizer and team generator using integer programming, risk-aware optimisation, PuLP and Gurobi"
+description = "Dream11 fantasy cricket lineup optimizer and team generator using ILP, MILP, risk-aware optimisation, PuLP and Gurobi"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
@@ -34,12 +34,20 @@ keywords = [
   "team-selection",
   "squad-optimisation",
   "sports-analytics",
+  "sports-optimisation",
   "player-selection",
   "captain-selection",
   "integer-programming",
+  "integer-linear-programming",
+  "ilp",
   "binary-integer-programming",
   "mixed-integer-programming",
+  "mixed-integer-linear-programming",
+  "milp",
+  "linear-programming",
+  "combinatorial-optimisation",
   "mathematical-optimisation",
+  "decision-support",
   "portfolio-optimisation",
   "risk-aware-optimisation",
   "operations-research",
@@ -83,6 +91,8 @@ dream11-reproduce = "experiments.reproduce_paper_results:main"
 Homepage = "https://github.com/sauravsingla/Dream-11"
 Repository = "https://github.com/sauravsingla/Dream-11"
 Documentation = "https://github.com/sauravsingla/Dream-11#readme"
+FAQ = "https://github.com/sauravsingla/Dream-11/blob/main/docs/faq.md"
+OptimisationGuide = "https://github.com/sauravsingla/Dream-11/blob/main/docs/fantasy-cricket-team-optimisation-guide.md"
 Paper = "https://doi.org/10.26438/ijcse/v8i11.16"
 ResearchGate = "https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection"
 Presentation = "https://www.slideshare.net/slideshow/integer-optimisation-for-dream-11-cricket-team-selection/239396861"
