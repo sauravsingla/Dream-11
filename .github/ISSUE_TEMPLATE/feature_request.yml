@@ -1,0 +1,45 @@
+name: Feature or research request
+description: Propose an optimizer enhancement, dataset adapter, experiment, or comparison baseline
+title: "[Enhancement]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or research question
+      description: Explain the practical or research problem this change would address.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Describe the algorithm, constraint, interface, dataset adapter, or experiment you suggest.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Expected value
+      description: Explain how this would improve reproducibility, usability, performance, or research reuse.
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References or prior work
+      description: Add papers, benchmarks, rule documentation, or related implementations where relevant.
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      options:
+        - label: I am willing to help implement or test this proposal.
+  - type: checkboxes
+    id: data
+    attributes:
+      label: Data and licensing
+      options:
+        - label: Any proposed data can be legally redistributed or will be represented by a synthetic example.
+          required: true
