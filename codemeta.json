@@ -1,0 +1,60 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Integer Optimisation for Dream 11 Cricket Team Selection",
+  "alternateName": [
+    "Dream11 Fantasy Cricket Team Optimizer",
+    "Dream 11 Team Selection Optimisation",
+    "Fantasy Cricket Integer Programming Model"
+  ],
+  "description": "Open-source Python software for Dream11-style fantasy cricket team selection using binary integer programming, risk-aware optimisation, PuLP/CBC and Gurobi.",
+  "codeRepository": "https://github.com/sauravsingla/Dream-11",
+  "issueTracker": "https://github.com/sauravsingla/Dream-11/issues",
+  "license": "https://spdx.org/licenses/MIT.html",
+  "version": "0.1.0",
+  "programmingLanguage": "Python",
+  "runtimePlatform": "Python 3.9+",
+  "applicationCategory": "Operations Research",
+  "applicationSubCategory": "Fantasy cricket analytics and constrained team selection",
+  "keywords": [
+    "Dream11",
+    "Dream 11",
+    "fantasy cricket",
+    "fantasy sports",
+    "cricket analytics",
+    "sports analytics",
+    "team selection",
+    "player selection",
+    "squad optimisation",
+    "integer programming",
+    "binary integer programming",
+    "mixed-integer programming",
+    "operations research",
+    "risk-aware optimisation",
+    "portfolio optimisation",
+    "PuLP",
+    "CBC solver",
+    "Gurobi",
+    "Python"
+  ],
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "Saurav",
+      "familyName": "Singla"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Swapna Samir",
+      "familyName": "Shukla"
+    }
+  ],
+  "citation": "https://doi.org/10.26438/ijcse/v8i11.16",
+  "referencePublication": "Integer Optimisation for Dream 11 Cricket Team Selection",
+  "softwareRequirements": [
+    "numpy",
+    "pandas",
+    "PuLP",
+    "matplotlib"
+  ]
+}
