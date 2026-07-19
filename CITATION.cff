@@ -2,12 +2,36 @@ cff-version: 1.2.0
 message: "Please cite this software and the associated paper when using the implementation."
 title: "Integer Optimisation for Dream 11 Cricket Team Selection"
 type: software
+version: 0.1.0
+abstract: >-
+  Open-source Python implementation of a risk-aware fantasy cricket team
+  optimizer for Dream11-style team selection. The project formulates player,
+  role, budget, captain, vice-captain and team-composition constraints as a
+  binary integer programming problem and supports PuLP/CBC and Gurobi solvers.
+keywords:
+  - Dream11
+  - Dream 11
+  - fantasy cricket
+  - fantasy sports
+  - cricket analytics
+  - sports analytics
+  - team selection
+  - squad optimisation
+  - integer programming
+  - mixed-integer programming
+  - operations research
+  - portfolio optimisation
+  - risk-aware optimisation
+  - PuLP
+  - Gurobi
+  - Python
 authors:
   - family-names: Singla
     given-names: Saurav
   - family-names: Shukla
     given-names: Swapna Samir
 repository-code: "https://github.com/sauravsingla/Dream-11"
+url: "https://github.com/sauravsingla/Dream-11"
 license: MIT
 preferred-citation:
   type: article
