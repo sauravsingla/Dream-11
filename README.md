@@ -1,18 +1,34 @@
-# Integer Optimisation for Dream 11 Cricket Team Selection
+# Dream11 Fantasy Cricket Team Optimizer using Integer Programming
 
 [![Tests](https://github.com/sauravsingla/Dream-11/actions/workflows/tests.yml/badge.svg)](https://github.com/sauravsingla/Dream-11/actions/workflows/tests.yml)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Paper DOI](https://img.shields.io/badge/DOI-10.26438%2Fijcse%2Fv8i11.16-blue)](https://doi.org/10.26438/ijcse/v8i11.16)
 
 **Official research-code repository** for the article:
 
 > Saurav Singla and Swapna Samir Shukla, **“Integer Optimisation for Dream 11 Cricket Team Selection,”** *International Journal of Computer Sciences and Engineering*, vol. 8, no. 11, pp. 1–6, November 2020.
 
-**Research areas:** fantasy-sports analytics · cricket analytics · integer programming · portfolio optimisation · risk-aware optimisation · operations research · sports team selection · Python · Gurobi · PuLP
+This open-source Python project is a **Dream11 fantasy cricket team optimizer**, **fantasy cricket lineup generator**, and **risk-aware player-selection model**. It uses binary integer programming to select an optimal 11-player squad subject to fantasy-credit, role, captain, vice-captain and real-team constraints.
+
+**Research areas:** fantasy-sports analytics · cricket analytics · integer programming · mixed-integer optimisation · lineup optimisation · roster optimisation · portfolio optimisation · risk-aware optimisation · operations research · sports team selection · Python · Gurobi · PuLP
 
 [Read the full text on ResearchGate](https://www.researchgate.net/publication/346564787_Integer_Optimisation_for_Dream_11_Cricket_Team_Selection) · [View the presentation on SlideShare](https://www.slideshare.net/slideshow/integer-optimisation-for-dream-11-cricket-team-selection/239396861) · [Run the example](#try-the-included-example) · [Reproduce experiments](#run-the-paper-style-experiments) · [Cite this work](#citation)
 
 The study formulates fantasy-cricket team selection as a binary integer optimisation problem. It uses each player's performance over the previous ten matches and applies a Markowitz-inspired risk penalty to distinguish between risk-taking and risk-averse team-selection strategies.
+
+## Search terms and related problems
+
+This repository is relevant to searches and research involving:
+
+- Dream11 team prediction, Dream 11 team selection and fantasy cricket team generation;
+- fantasy cricket lineup optimisation, roster optimisation and squad selection;
+- optimal captain and vice-captain selection;
+- constrained player selection under a fantasy-credit budget;
+- cricket analytics using operations research and mathematical optimisation;
+- binary integer programming, mixed-integer programming, PuLP, CBC and Gurobi;
+- risk-aware fantasy sports modelling and Markowitz-style portfolio optimisation;
+- reproducible sports analytics, optimisation baselines and team-selection algorithms.
 
 ## Why this repository may be useful
 
