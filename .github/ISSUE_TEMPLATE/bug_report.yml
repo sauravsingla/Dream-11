@@ -1,0 +1,68 @@
+name: Bug report
+description: Report a reproducible problem in the optimizer, CLI, tests, or experiment workflow
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Please remove private, licensed, or personally identifiable data.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: Describe what happened and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include the exact command and a minimal reproducible input or example.
+      placeholder: |
+        1. Install with ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output
+      description: Paste the complete traceback or solver message.
+      render: shell
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.11.9"
+    validations:
+      required: true
+  - type: dropdown
+    id: solver
+    attributes:
+      label: Solver backend
+      options:
+        - PuLP/CBC
+        - Gurobi
+        - Auto
+        - Not applicable
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "Ubuntu 24.04, Windows 11, macOS 15"
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing issues for the same problem.
+          required: true
+        - label: I have not included private data, credentials, or solver licence files.
+          required: true
