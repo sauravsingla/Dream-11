@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Usage and support questions
+    url: https://github.com/sauravsingla/Dream-11/blob/main/SUPPORT.md
+    about: Review installation, solver, dataset and reproducibility guidance before opening an issue.
+  - name: Security report
+    url: https://github.com/sauravsingla/Dream-11/blob/main/SECURITY.md
+    about: Follow the private reporting guidance for potential security vulnerabilities.
+  - name: Research paper
+    url: https://doi.org/10.26438/ijcse/v8i11.16
+    about: Read and cite the associated research article.
