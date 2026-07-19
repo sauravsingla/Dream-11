@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dream11-integer-optimisation"
 version = "0.1.0"
-description = "Dream11 fantasy cricket team optimizer using integer programming, risk-aware optimisation, PuLP and Gurobi"
+description = "Dream11 fantasy cricket lineup optimizer and team generator using integer programming, risk-aware optimisation, PuLP and Gurobi"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
@@ -19,15 +19,23 @@ keywords = [
   "dream 11",
   "dream11-team-prediction",
   "dream11-team-selection",
+  "dream11-team-generator",
   "fantasy-cricket",
   "fantasy-cricket-optimizer",
+  "fantasy-cricket-lineup",
+  "fantasy-cricket-team-generator",
   "fantasy-sports",
   "cricket-analytics",
   "cricket-team-selection",
+  "lineup-optimisation",
+  "lineup-optimization",
+  "roster-optimisation",
+  "roster-optimization",
   "team-selection",
   "squad-optimisation",
   "sports-analytics",
   "player-selection",
+  "captain-selection",
   "integer-programming",
   "binary-integer-programming",
   "mixed-integer-programming",
