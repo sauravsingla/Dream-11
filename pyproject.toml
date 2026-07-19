@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dream11-integer-optimisation"
 version = "0.1.0"
-description = "Paper-aligned integer optimisation for Dream11 cricket team selection"
+description = "Fantasy cricket team optimizer using integer programming, risk-aware optimisation, PuLP and Gurobi"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {text = "MIT"}
@@ -13,7 +13,23 @@ authors = [
   {name = "Saurav Singla"},
   {name = "Swapna Samir Shukla"},
 ]
-keywords = ["integer-programming", "fantasy-cricket", "optimisation", "pulp", "gurobi"]
+keywords = [
+  "dream11",
+  "dream-11",
+  "fantasy-cricket",
+  "fantasy-sports",
+  "cricket-analytics",
+  "team-selection",
+  "sports-analytics",
+  "integer-programming",
+  "mixed-integer-programming",
+  "portfolio-optimisation",
+  "risk-aware-optimisation",
+  "operations-research",
+  "pulp",
+  "gurobi",
+  "python",
+]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",
@@ -44,8 +60,11 @@ gurobi = ["gurobipy>=10"]
 dream11-reproduce = "experiments.reproduce_paper_results:main"
 
 [project.urls]
+Homepage = "https://github.com/sauravsingla/Dream-11"
 Repository = "https://github.com/sauravsingla/Dream-11"
+Documentation = "https://github.com/sauravsingla/Dream-11#readme"
 Paper = "https://doi.org/10.26438/ijcse/v8i11.16"
+Issues = "https://github.com/sauravsingla/Dream-11/issues"
 
 [tool.setuptools]
 packages = ["src", "experiments"]
