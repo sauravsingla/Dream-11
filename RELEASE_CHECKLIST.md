@@ -1,6 +1,6 @@
 # Release checklist
 
-Use this checklist before publishing `v0.1.0` and archiving it on Zenodo.
+Use this checklist before publishing `v1.0.0` and archiving it on Zenodo.
 
 ## Data and reproducibility
 
@@ -13,7 +13,7 @@ Use this checklist before publishing `v0.1.0` and archiving it on Zenodo.
 
 ## Packaging
 
-- [ ] Confirm that `pyproject.toml` reports version `0.1.0`.
+- [ ] Confirm that `pyproject.toml` reports version `1.0.0`.
 - [ ] Run `python -m build` successfully.
 - [ ] Run `python -m twine check dist/*` successfully.
 - [ ] Install the generated wheel in a clean environment and run `dream11-reproduce --help`.
@@ -30,10 +30,11 @@ Use this checklist before publishing `v0.1.0` and archiving it on Zenodo.
 
 1. Open the repository's Releases page.
 2. Choose **Draft a new release**.
-3. Create the tag `v0.1.0` from `main`.
-4. Use the title `v0.1.0 — Reproducible research implementation`.
+3. Create the tag `v1.0.0` from `main`.
+4. Use the title `v1.0.0 — Reproducible Dream11 Team Optimisation`.
 5. Summarise the reusable optimiser, PuLP support, tests, experiment runner, citation metadata and data limitations.
-6. Publish the release only after the CI workflow passes.
+6. Mark the release as the latest release.
+7. Publish the release only after the CI workflow passes.
 
 ## Zenodo archive
 
