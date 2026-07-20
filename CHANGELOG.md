@@ -4,6 +4,8 @@ All notable changes to this project are documented here. The format follows Keep
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-07-20
+
 ### Added
 
 - Reusable integer-optimisation module aligned with the research formulation.
@@ -25,9 +27,12 @@ All notable changes to this project are documented here. The format follows Keep
 - Removed Gurobi from mandatory dependencies.
 - Added bounded dependency ranges for more stable CI.
 - Relaxed numerical comparison tolerance to avoid false failures from harmless solver-level floating-point differences.
-- Aligned the planned first GitHub release tag with package version `0.1.0`.
+- Aligned the first stable GitHub release tag with package version `1.0.0`.
 - Improved README discovery keywords, research-use cases and copy-ready citation guidance.
 
 ### Known limitation
 
 - Exact reproduction of the paper's numerical results requires the original `Players_Score.csv`, which has not been recovered or publicly verified.
+
+[Unreleased]: https://github.com/sauravsingla/Dream-11/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/sauravsingla/Dream-11/releases/tag/v1.0.0
